@@ -72,9 +72,9 @@
   margin-top: 40px;
 }
 
-.main p {
-  text-align: center;
-  max-width: 50rem;
+.main .wordsToTranslate {
+  display: flex;
+  flex-direction: column; 
 }
 
 .grid {
@@ -91,6 +91,7 @@
   padding: 0.5rem;
   text-align: center;
 }
+
 
 .grid .wordClicked {
   border: 1px solid black;

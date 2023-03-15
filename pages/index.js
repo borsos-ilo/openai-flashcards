@@ -34,10 +34,17 @@ export default function Home() {
   //     alert(error.message);
   //   }
   // }
-
+  const wordsList = new Set()
   function SpanElement({ word }) {
     const [isClicked, setIsClicked] = useState(false);
-    const handleClick = () => {
+    const handleClick = (event) => {
+      if (wordsList.has(word)) {
+        wordsList.delete(word)
+      } else {
+        wordsList.add(word)
+      }
+      console.log(word)
+      console.log(wordsList)
       setIsClicked(!isClicked);
     };
   
@@ -150,9 +157,13 @@ const handleSubmit = (event) => {
            value="Transform text!"/>
         </form>
         {/* <div className={styles.result}>{result}</div> */}
+        <form className={styles.wordsToTranslate}>
         <div className={styles.grid}>
           {transformedText}
         </div>
+        <input type="submit"
+           value="Generate flashcards!"/>
+        </form>
       </main>
     </div>
   );

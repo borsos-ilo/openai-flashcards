@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "csv-stringify": "^6.3.0",
+    "natural": "^6.2.0",
     "next": "^13.1.1",
     "openai": "^3.2.1",
     "react": "^18.2.0",

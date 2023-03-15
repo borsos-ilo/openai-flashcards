@@ -63,9 +63,9 @@ export default function Home() {
 const handleSubmit = (event) => {
   event.preventDefault();
   const content = textInput;
-  const words = content.split(' ');
+  const words = content.split(' ').filter(word => word.replace(/[^a-ząćęłńóśźżáéíóöőúüű]/g, '')!='').filter(word =>word.length>1);
   const transformedText = words.map((word, index) => (
-    <SpanElement key={index} word={word} />
+    <SpanElement key={index} word={word.toLowerCase().replace(/[^a-ząćęłńóśźżáéíóöőúüű]/g, '')} />
   ));
   setTransformedText(transformedText);
   setTextInput('');
@@ -150,8 +150,8 @@ const handleSubmit = (event) => {
            value="Transform text!"/>
         </form>
         {/* <div className={styles.result}>{result}</div> */}
-        <div className={styles.transformedText}>
-          <p>{transformedText}</p>
+        <div className={styles.grid}>
+          {transformedText}
         </div>
       </main>
     </div>
